@@ -1,0 +1,36 @@
+<mat-toolbar class="header__nav" color="warn">
+    <!--<img class="img" src="/assets/img/bg.png" alt=""-->
+    <div class="logo-container">
+        <button class="header__logo" routerLink="/" mat-fab aria-label="Example icon button with a delete icon">
+            <img class="img" src="/assets/img/logo.png" alt="">
+
+        </button>
+        <span class="header__title">&nbsp;{{sTitre}}</span>
+    </div>
+ 
+    <div>
+        <ng-container *ngIf="!connect()">
+            <div class="auth">
+                <button mat-mini-fab class="liste__btn" routerLink="" (click)="openLogin()" aria-label="Example icon button with a home icon">
+                    <mat-icon>login</mat-icon>
+                </button>
+                <button mat-mini-fab class="liste__btn" routerLink="" (click)="openRegister()" aria-label="Example icon button with a home icon">
+                    <mat-icon>person_add</mat-icon>
+                </button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="connect()">
+            <button mat-mini-fab class="liste__btn" routerLink="usager" aria-label="Example icon button with a home icon">
+                <mat-icon>person</mat-icon>
+            </button>
+            <button mat-mini-fab class="liste__btn" routerLink="accueil" (click)="logout()" [(ngModel)]="estConnecte" aria-label="Example icon button with a home icon">
+                <mat-icon>logout</mat-icon>
+            </button>
+        </ng-container>
+
+    </div>
+
+
+
+</mat-toolbar>
+

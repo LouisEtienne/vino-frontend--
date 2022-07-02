@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Connexion</h1>
+<div mat-dialog-content>
+    <form [formGroup]="loginForm" action="">
+        <!--Inputs-->
+        <mat-form-field appearance="outline">
+            <mat-label>Connexion :</mat-label>
+            <input matInput formControlName="courriel" placeholder="Entrer votre courriel">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Mot de passe :</mat-label>
+            <input type="password" matInput formControlName="mot_passe" placeholder="Entrer votre mot de passe">
+            <mat-hint></mat-hint>
+        </mat-form-field>
+    </form>
+</div>
+<!--Boutons-->
+<div mat-dialog-action [align]="'end'">
+    <button style="background-color: #4F3E3E;color: white;" mat-raised-button  [disabled]="!loginForm.dirty || !loginForm.valid" (click)="login()" [(ngModel)]="estConnecte">
+        Connexion
+    </button>
+</div>
